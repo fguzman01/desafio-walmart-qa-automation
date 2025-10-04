@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+
+# Resultados de Allure
+allure-results/
+
+# Resultados de Playwright
+test-results/
+playwright-report/
+
+# Reportes y capturas
+reports/
+
+# Utils legacy de captcha
+src/utils/captchaUtils.legacy.ts
+
+# Archivos de entorno y temporales
+.env
+*.log
+*.tmp
+.DS_Store
+
+# Configuración de VSCode
+.vscode/

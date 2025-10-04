@@ -1,0 +1,30 @@
+{
+  "name": "framework-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+  "test:slow": "cross-env HEADLESS=false SLOWMO_MS=1500 ACTION_DELAY_MS=1000 playwright test",
+  "test:bdd": "cucumber-js --require-module ts-node/register --require tests/runners/hooks.ts --require tests/bdd/step-definitions/**/*.ts tests/bdd/features/**/*.feature",
+      "report:generate": "allure generate allure-results --clean -o reports/allure-report",
+    "report:open": "allure open reports/allure-report",
+    "test:allure": "playwright test && npm run allure:generate && npm run allure:open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.1",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.1",
+    "cross-env": "^10.1.0",
+    "playwright": "^1.55.0",
+    "ts-node": "^10.9.2"
+  }
+}
