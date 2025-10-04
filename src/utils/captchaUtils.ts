@@ -78,7 +78,7 @@ export async function checkCaptcha(
     // Opcionde guardar captura en el disco
     if (alsoSaveToDisk) {
       const pathSaved = await saveDiskScreenshot(page, contexto);
-      console.warn(`📸 Captura guardada: ${pathSaved}`);
+      console.warn(`Captura guardada: ${pathSaved}`);
     }
 
     // Modos de acción (seleccionar en test)
