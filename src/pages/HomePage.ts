@@ -1,6 +1,8 @@
 import { Page, expect } from '@playwright/test';
 import { link } from 'fs/promises'
 import { safeGoto, waitElement, ensureInteractable, safeClick, safeFill } from '../utils/webUtils';
+import { BASE_URL } from '../config/env';
+import { checkCaptcha } from '../utils/captchaUtils';
 
 
 export class HomePage {
@@ -108,9 +110,9 @@ export class HomePage {
    * Ir al home
    */
   async irA(): Promise<void> {
-  // Navega al home principal
-  console.log('HomePage.irA: navegar al home');
-    await safeGoto(this.page, 'https://www.lider.cl/', { log: 'all', logLabel: 'goto-home' });
+    // Navega al home principal
+    console.log('HomePage.irA: navegar al home');
+    await safeGoto(this.page, BASE_URL, { log: 'all', logLabel: 'goto-home' });
   }
 
   /**
@@ -119,6 +121,7 @@ export class HomePage {
   async esperarCargado(): Promise<void> {
   // Espera que los elementos clave del home estén cargados
   console.log('HomePage.esperarCargado: validar objetos clave del home');
+  await checkCaptcha(this.page, 'home-loaded', 'skip');
     
     try {
       const cookiesBtn = this.page.locator(this.acceptCookiesBtn);
