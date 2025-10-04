@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug",
-  "test:slow": "cross-env HEADLESS=false SLOWMO_MS=1500 ACTION_DELAY_MS=1000 playwright test",
-  "test:bdd": "cucumber-js --require-module ts-node/register --require tests/runners/hooks.ts --require tests/bdd/step-definitions/**/*.ts tests/bdd/features/**/*.feature",
-      "report:generate": "allure generate allure-results --clean -o reports/allure-report",
-    "report:open": "allure open reports/allure-report",
-    "test:allure": "playwright test && npm run allure:generate && npm run allure:open"
-  },
+  "test": "npx playwright test",
+  "test:ui": "npx playwright test --ui",
+  "test:headed": "npx playwright test --headed",
+  "test:debug": "npx playwright test --debug",
+  "test:allure": "npx playwright test && npm run allure:generate && npm run allure:open",
+
+  "allure:generate": "allure generate allure-results --clean -o reports/allure-report",
+  "allure:serve": "allure serve allure-results",
+  "allure:open": "allure open reports/allure-report"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

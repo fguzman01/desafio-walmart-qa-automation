@@ -13,7 +13,7 @@ export default defineConfig({
     ['line'],
     ['allure-playwright', {
       detail: true,
-      outputFolder: 'reports/allure-results',
+      outputFolder: 'allure-results',
       suiteTitle: false
     }]
   ],
